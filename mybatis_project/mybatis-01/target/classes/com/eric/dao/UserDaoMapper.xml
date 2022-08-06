@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--对应一个Dao接口-->
+<mapper namespace="com.eric.dao.UserDao">
+    <select id="getStuList" resultType="com.eric.pojo.Student">
+        select * from mybatis.stu
+    </select>
+    <select id="getUserById" parameterType="int" resultType="com.eric.pojo.Student">
+        select * from mybatis.stu where id = #{id}
+    </select>
+    <insert id="insertStu" parameterType="com.eric.pojo.Student">
+        insert into mybatis.stu (id,name,pwd) values (#{id},#{name},#{pwd})
+    </insert>
+    <update id="updateStu" parameterType="com.eric.pojo.Student">
+        update mybatis.stu set name=#{name},pwd=#{pwd}  where id = #{id} ;
+    </update>
+    <delete id="deleteStu" parameterType="int">
+        delete from mybatis.stu where id = #{id} ;
+    </delete>
+</mapper>
